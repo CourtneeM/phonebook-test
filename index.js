@@ -4,9 +4,9 @@ const cors = require('cors');
 const app = express();
 require('dotenv').config();
 
-app.use(express.static('dist'));
 app.use(express.json());
 app.use(cors());
+app.use(express.static('dist'));
 
 morgan.token('res-body', (req, res, next) => JSON.stringify({"name": res.body.name, "number": res.body.number}));
 app.use(morgan('tiny'));
